@@ -22,6 +22,8 @@ class FileDefinition implements Stringable
         return <<<PHP
 <?php
 
+declare(strict_types=1);
+
 {$classDefinition}
 PHP;
 
