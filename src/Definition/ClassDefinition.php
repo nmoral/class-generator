@@ -10,6 +10,7 @@ class ClassDefinition implements Stringable
 {
     public function __construct(
         private readonly ClassOptions $options,
+        private readonly PropertyDefinition $property,
     )
     {
     }
@@ -21,7 +22,7 @@ namespace {$this->options->FCQN()};
 
 class {$this->options->getClassName()}
 {
-
+    {$this->property}
 }
 PHP;
 

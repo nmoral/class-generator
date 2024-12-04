@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace SolidDevelopment\ClassGenerator\Definition;
 
-class ClassOptions
+class ClassOptions extends AbstractOptions
 {
     public function __construct(
-        private readonly string $className,
+        string $name,
         Private readonly NamespaceDefinition $namespace,
     )
     {
+        parent::__construct($name);
     }
 
     public function getClassName(): string
     {
-        return ucfirst($this->className);
+        return ucfirst($this->name);
     }
 
     /**

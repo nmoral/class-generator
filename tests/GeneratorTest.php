@@ -11,6 +11,8 @@ use SolidDevelopment\ClassGenerator\Definition\ClassOptions;
 use SolidDevelopment\ClassGenerator\Definition\FileDefinition;
 use SolidDevelopment\ClassGenerator\Definition\NamespaceDefinition;
 use SolidDevelopment\ClassGenerator\Definition\PhpDefinition;
+use SolidDevelopment\ClassGenerator\Definition\PropertyDefinition;
+use SolidDevelopment\ClassGenerator\Definition\PropertyOptions;
 use SolidDevelopment\ClassGenerator\Generator;
 
 class GeneratorTest extends TestCase
@@ -28,6 +30,11 @@ class GeneratorTest extends TestCase
                         new NamespaceDefinition(
                             'SolidDevelopment\ClassGenerator\tests',
                             ['Tests'],
+                        ),
+                    ),
+                    new PropertyDefinition(
+                        new PropertyOptions(
+                            'test',
                         )
                     )
                 )
