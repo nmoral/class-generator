@@ -4,5 +4,11 @@ up:
 down:
 	docker compose down
 
+build:
+	docker compose build
+
 bash:
-	docker exec -it php_app bash
+	docker compose exec -it app bash
+
+test:
+	docker compose run --rm app ./vendor/bin/phpunit

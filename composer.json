@@ -10,6 +10,11 @@
             "SolidDevelopment\\ClassGenerator\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "SolidDevelopment\\ClassGenerator\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Nicolas Moral",
