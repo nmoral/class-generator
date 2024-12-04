@@ -11,6 +11,8 @@ use SolidDevelopment\ClassGenerator\Definition\Class\ClassOptions;
 use SolidDevelopment\ClassGenerator\Definition\Class\NamespaceDefinition;
 use SolidDevelopment\ClassGenerator\Definition\DefinitionCollection;
 use SolidDevelopment\ClassGenerator\Definition\FileDefinition;
+use SolidDevelopment\ClassGenerator\Definition\Function\FunctionDefinition;
+use SolidDevelopment\ClassGenerator\Definition\Function\FunctionOptions;
 use SolidDevelopment\ClassGenerator\Definition\PhpDefinition;
 use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyDefinition;
 use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyOptions;
@@ -51,7 +53,14 @@ class GeneratorTest extends TestCase
                                 )
                             ),
                         ]
-                    )
+                    ),
+                    new DefinitionCollection([
+                        new FunctionDefinition(
+                            new FunctionOptions(
+                                'test',
+                            )
+                        )
+                    ])
                 )
             ),
             './build/'

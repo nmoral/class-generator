@@ -9,4 +9,6 @@ class Test
     public static string|null $test = null;
 
     public readonly mixed $test2;
+
+    public function test(){}
 }

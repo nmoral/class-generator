@@ -6,6 +6,7 @@ namespace SolidDevelopment\ClassGenerator\Definition;
 
 use Iterator;
 use Stringable;
+use const PHP_EOL;
 
 class DefinitionCollection implements Stringable, Iterator
 {
@@ -24,7 +25,7 @@ class DefinitionCollection implements Stringable, Iterator
 
     public function __toString(): string
     {
-        return implode(PHP_EOL.PHP_EOL, $this->definitions);
+        return PHP_EOL.implode(PHP_EOL.PHP_EOL, $this->definitions).PHP_EOL;
     }
 
     public function current(): mixed

@@ -14,6 +14,7 @@ class ClassDefinition implements Stringable
     public function __construct(
         private readonly ClassOptions $options,
         private readonly ?DefinitionCollection $properties = null,
+        private readonly ?DefinitionCollection $methods = null,
     )
     {
         if ($this->properties) {
@@ -34,13 +35,13 @@ class ClassDefinition implements Stringable
     public function __toString(): string
     {
         $properties = $this->properties ?? '';
+        $methods = $this->methods ?? '';
+        $body = $properties.$methods;
         return <<<PHP
 namespace {$this->options->FCQN()};
 
 class {$this->options->getClassName()}
-{
-{$properties}
-}
+{{$body}}
 PHP;
 
     }
