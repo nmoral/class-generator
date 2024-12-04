@@ -23,4 +23,9 @@ class {$this->options->getClassName()} {
 PHP;
 
     }
+
+    public function getClassName(): string
+    {
+        return $this->options->getClassName();
+    }
 }

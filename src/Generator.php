@@ -10,10 +10,10 @@ class Generator
 {
     /**
      */
-    public function generate(Definition $classDefinition): int
+    public function generate(Definition $definition): int
     {
         try {
-            $this->_doGenerate($classDefinition);
+            $this->_doGenerate($definition);
         } catch (\Exception $e) {
             return 1;
         }

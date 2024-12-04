@@ -17,11 +17,18 @@ class FileDefinition implements Stringable
 
     public function __toString(): string
     {
+        $classDefinition = (string) $this->classDefinition;
+
         return <<<PHP
 <?php
 
-${$this->classDefinition}
+{$classDefinition}
 PHP;
 
+    }
+
+    public function getClassName(): string
+    {
+        return $this->classDefinition->getClassName();
     }
 }

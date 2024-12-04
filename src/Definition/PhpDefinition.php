@@ -16,7 +16,7 @@ class PhpDefinition implements Definition
 
     public function __toString(): string
     {
-        return $this->fileDefinition;
+        return (string) $this->fileDefinition;
     }
 
     public function getFileName(): string
