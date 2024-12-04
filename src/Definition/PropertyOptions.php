@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SolidDevelopment\ClassGenerator\Definition;
 
+use SolidDevelopment\ClassGenerator\Exception\InvalidPropertyDefinition;
+
 class PropertyOptions extends AbstractOptions
 {
     public function __construct(
@@ -14,6 +16,9 @@ class PropertyOptions extends AbstractOptions
     )
     {
         parent::__construct($name);
+        if (!in_array($this->visibility, ['public', 'protected', 'private'], true)) {
+            throw new InvalidPropertyDefinition('Invalid visibility');
+        }
     }
 
     public function getName(): string
