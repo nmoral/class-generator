@@ -13,4 +13,9 @@ abstract class AbstractOptions
     )
     {
     }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }
