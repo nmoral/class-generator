@@ -47,6 +47,7 @@ class GeneratorTest extends TestCase
                             new PropertyDefinition(
                                 new PropertyOptions(
                                     'test2',
+                                    readonly: true,
                                 )
                             ),
                         ]

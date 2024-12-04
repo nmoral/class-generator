@@ -22,7 +22,9 @@ class PropertyDefinition implements Stringable, LevelInterface
             str_repeat(' ', $this->level * 4),
             $this->options->getVisibility(),
         );
-
+        if ($this->options->isReadonly()) {
+            $property .= ' readonly';
+        }
         if ($this->options->isStatic()) {
             $property .= ' static';
         }

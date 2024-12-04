@@ -18,4 +18,12 @@ class PropertyOptionsTest extends TestCase
 
         new PropertyOptions('name', visibility: 'fake');
     }
+
+    #[test]
+    public function validateReadonlyWithStatic(): void
+    {
+        self::expectException(InvalidPropertyDefinition::class);
+
+        new PropertyOptions('name', static: true, readonly: true);
+    }
 }

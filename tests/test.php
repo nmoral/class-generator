@@ -8,5 +8,5 @@ class Test
 {
     public static string|null $test = null;
 
-    public mixed $test2;
+    public readonly mixed $test2;
 }
