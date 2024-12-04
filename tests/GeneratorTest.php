@@ -41,6 +41,7 @@ class GeneratorTest extends TestCase
                                     'test',
                                     type: 'string|null',
                                     value: 'null',
+                                    static: true,
                                 )
                             ),
                             new PropertyDefinition(

@@ -13,6 +13,7 @@ class PropertyOptions extends AbstractOptions
         private readonly string $visibility = 'public',
         private readonly string $type = 'mixed',
         private readonly ?string $value = null,
+        private readonly bool $static = false,
     )
     {
         parent::__construct($name);
@@ -44,5 +45,10 @@ class PropertyOptions extends AbstractOptions
     public function getValue(): ?string
     {
         return $this->value;
+    }
+
+    public function isStatic(): bool
+    {
+        return $this->static;
     }
 }

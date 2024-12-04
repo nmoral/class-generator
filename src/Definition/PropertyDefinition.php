@@ -18,15 +18,24 @@ class PropertyDefinition implements Stringable, LevelInterface
     public function __toString(): string
     {
         $property = sprintf(
-            '%s%s %s $%s',
+            '%s%s',
             str_repeat(' ', $this->level * 4),
             $this->options->getVisibility(),
+        );
+
+        if ($this->options->isStatic()) {
+            $property .= ' static';
+        }
+
+        $property = sprintf(
+            '%s %s $%s',
+            $property,
             $this->options->getType(),
-            $this->options->getName()
+            $this->options->getName(),
         );
 
         if ($this->options->hasValue()) {
-            $property .= ' = ' . $this->options->getValue();
+            $property .= ' = '.$this->options->getValue();
         }
 
         return sprintf('%s;', $property);
