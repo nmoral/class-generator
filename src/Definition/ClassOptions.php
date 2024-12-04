@@ -14,6 +14,6 @@ class ClassOptions
 
     public function getClassName(): string
     {
-        return $this->className;
+        return ucfirst($this->className);
     }
 }
