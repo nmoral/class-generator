@@ -15,6 +15,7 @@ class DefinitionCollection implements Stringable, Iterator
     public function __construct(
         private readonly array $definitions = [],
         int $level = 1,
+        private readonly string $separator = PHP_EOL.PHP_EOL,
     ) {
         foreach ($this->definitions as $definition) {
             if ($definition instanceof LevelInterface) {
@@ -25,7 +26,7 @@ class DefinitionCollection implements Stringable, Iterator
 
     public function __toString(): string
     {
-        return PHP_EOL.implode(PHP_EOL.PHP_EOL, $this->definitions).PHP_EOL;
+        return PHP_EOL.implode($this->separator, $this->definitions).PHP_EOL;
     }
 
     public function current(): mixed

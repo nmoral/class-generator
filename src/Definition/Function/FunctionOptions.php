@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SolidDevelopment\ClassGenerator\Definition\Function;
 
+use SolidDevelopment\ClassGenerator\Definition\DefinitionCollection;
 use SolidDevelopment\ClassGenerator\Definition\ModifierOptions;
 
 class FunctionOptions extends ModifierOptions
@@ -13,6 +14,7 @@ class FunctionOptions extends ModifierOptions
         string $visibility = 'public',
         bool $static = false,
         private readonly ?ReturnType $returnType = null,
+        private readonly ?DefinitionCollection $parameters = null,
     ) {
         parent::__construct($name, $visibility, $static);
     }
@@ -25,5 +27,15 @@ class FunctionOptions extends ModifierOptions
     public function getReturnType(): ?ReturnType
     {
         return $this->returnType;
+    }
+
+    public function getParameters(): ?DefinitionCollection
+    {
+        return $this->parameters;
+    }
+
+    public function hasParameters()
+    {
+        return null !== $this->parameters;
     }
 }

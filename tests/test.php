@@ -10,7 +10,10 @@ class Test
 
     public readonly mixed $test2;
 
-    public function test(): string|null
+    public function test(
+        string $str = 'str',
+        int $int = 1,
+    ): string|null
     {
     }
 }

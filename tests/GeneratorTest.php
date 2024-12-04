@@ -13,12 +13,15 @@ use SolidDevelopment\ClassGenerator\Definition\DefinitionCollection;
 use SolidDevelopment\ClassGenerator\Definition\FileDefinition;
 use SolidDevelopment\ClassGenerator\Definition\Function\FunctionDefinition;
 use SolidDevelopment\ClassGenerator\Definition\Function\FunctionOptions;
+use SolidDevelopment\ClassGenerator\Definition\Function\FunctionParameter;
+use SolidDevelopment\ClassGenerator\Definition\Function\ParameterOptions;
 use SolidDevelopment\ClassGenerator\Definition\Function\ReturnType;
 use SolidDevelopment\ClassGenerator\Definition\PhpDefinition;
 use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyDefinition;
 use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyOptions;
 use SolidDevelopment\ClassGenerator\Exception\InvalidClassDefinition;
 use SolidDevelopment\ClassGenerator\Generator;
+use const PHP_EOL;
 
 class GeneratorTest extends TestCase
 {
@@ -60,10 +63,27 @@ class GeneratorTest extends TestCase
                             new FunctionOptions(
                                 'test',
                                 returnType: new ReturnType([
-                                    'string', 'null'
-                                ])
-                            )
-                        )
+                                    'string',
+                                    'null',
+                                ]),
+                                parameters: new DefinitionCollection([
+                                    new FunctionParameter(
+                                        new ParameterOptions(
+                                            'str',
+                                            ['string'],
+                                            '\'str\''
+                                        )
+                                    ),
+                                    new FunctionParameter(
+                                        new ParameterOptions(
+                                            'int',
+                                            ['int'],
+                                            '1'
+                                        )
+                                    ),
+                                ], 2, PHP_EOL),
+                            ),
+                        ),
                     ])
                 )
             ),
