@@ -10,5 +10,7 @@ class Test
 
     public readonly mixed $test2;
 
-    public function test(){}
+    public function test(): string|null
+    {
+    }
 }

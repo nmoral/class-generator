@@ -27,11 +27,25 @@ class FunctionDefinition implements LevelInterface, Stringable
 
     public function __toString(): string
     {
-        return sprintf(
-            '%s%s function %s(){}',
-            str_repeat(' ', $this->level * 4),
+        $indetation = $this->getIndentation();
+        $functionSignature = sprintf(
+            '%s%s function %s()',
+            $indetation,
             $this->options->getVisibility(),
             $this->options->getName(),
         );
+
+        if ($this->options->hasReturnType()) {
+            $functionSignature .= ': '.$this->options->getReturnType();
+        }
+
+        return $functionSignature.PHP_EOL.$indetation.'{'.PHP_EOL.$indetation.'}';
+    }
+
+    private function getIndentation(): string
+    {
+        $indetation = str_repeat(' ', $this->level * 4);
+
+        return $indetation;
     }
 }
