@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: php_app
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "composer install && php -S 0.0.0.0:8000 -t public"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - composer
+
+  composer:
+    image: composer:2
+    container_name: composer
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: composer install
