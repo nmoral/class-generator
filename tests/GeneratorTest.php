@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 use SolidDevelopment\ClassGenerator\Definition\ClassDefinition;
 use SolidDevelopment\ClassGenerator\Definition\ClassOptions;
 use SolidDevelopment\ClassGenerator\Definition\FileDefinition;
+use SolidDevelopment\ClassGenerator\Definition\NamespaceDefinition;
 use SolidDevelopment\ClassGenerator\Definition\PhpDefinition;
 use SolidDevelopment\ClassGenerator\Generator;
 
@@ -23,7 +24,11 @@ class GeneratorTest extends TestCase
             new FileDefinition(
                 new ClassDefinition(
                     new ClassOptions(
-                        'test'
+                        'test',
+                        new NamespaceDefinition(
+                            'SolidDevelopment\ClassGenerator',
+                            ['Tests'],
+                        )
                     )
                 )
             ),

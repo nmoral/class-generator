@@ -8,6 +8,7 @@ class ClassOptions
 {
     public function __construct(
         private readonly string $className,
+        Private readonly NamespaceDefinition $namespace,
     )
     {
     }
@@ -15,5 +16,19 @@ class ClassOptions
     public function getClassName(): string
     {
         return ucfirst($this->className);
+    }
+
+    /**
+     */
+    public function FCQN(): string
+    {
+        return $this->namespace->namespace();
+    }
+
+    /**
+     */
+    public function getPath(): string
+    {
+        return $this->namespace->path().'/'.$this->getClassName().'.php';
     }
 }
