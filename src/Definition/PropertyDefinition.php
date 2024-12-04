@@ -29,4 +29,9 @@ class PropertyDefinition implements Stringable, LevelInterface
     {
         $this->level = $level;
     }
+
+    public function getName(): string
+    {
+        return $this->options->getName();
+    }
 }
