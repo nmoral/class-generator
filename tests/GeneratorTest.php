@@ -8,6 +8,7 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use SolidDevelopment\ClassGenerator\Definition\ClassDefinition;
 use SolidDevelopment\ClassGenerator\Definition\ClassOptions;
+use SolidDevelopment\ClassGenerator\Definition\DefinitionCollection;
 use SolidDevelopment\ClassGenerator\Definition\FileDefinition;
 use SolidDevelopment\ClassGenerator\Definition\NamespaceDefinition;
 use SolidDevelopment\ClassGenerator\Definition\PhpDefinition;
@@ -32,10 +33,19 @@ class GeneratorTest extends TestCase
                             ['Tests'],
                         ),
                     ),
-                    new PropertyDefinition(
-                        new PropertyOptions(
-                            'test',
-                        )
+                    new DefinitionCollection(
+                        [
+                            new PropertyDefinition(
+                                new PropertyOptions(
+                                    'test',
+                                )
+                            ),
+                            new PropertyDefinition(
+                                new PropertyOptions(
+                                    'test2',
+                                )
+                            ),
+                        ]
                     )
                 )
             ),

@@ -6,8 +6,10 @@ namespace SolidDevelopment\ClassGenerator\Definition;
 
 use Stringable;
 
-class PropertyDefinition implements Stringable
+class PropertyDefinition implements Stringable, LevelInterface
 {
+    private int $level;
+
     public function __construct(
         private readonly PropertyOptions $options,
     ) {
@@ -16,9 +18,15 @@ class PropertyDefinition implements Stringable
     public function __toString(): string
     {
         return sprintf(
-            '%s $%s;',
+            '%s%s $%s;',
+            str_repeat(' ', $this->level * 4),
             $this->options->getVisibility(),
             $this->options->getName()
         );
+    }
+
+    public function setLevel(int $level): void
+    {
+        $this->level = $level;
     }
 }

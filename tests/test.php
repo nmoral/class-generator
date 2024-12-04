@@ -7,4 +7,6 @@ namespace SolidDevelopment\ClassGenerator\tests\Tests;
 class Test
 {
     public $test;
+
+    public $test2;
 }
