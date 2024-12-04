@@ -30,8 +30,8 @@ PHP;
 
     }
 
-    public function getClassName(): string
+    public function getClassPath(): string
     {
-        return $this->classDefinition->getClassName();
+        return $this->classDefinition->getClassPath();
     }
 }

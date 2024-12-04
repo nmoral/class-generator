@@ -27,8 +27,8 @@ PHP;
 
     }
 
-    public function getClassName(): string
+    public function getClassPath(): string
     {
-        return $this->options->getClassName();
+        return $this->options->getPath();
     }
 }

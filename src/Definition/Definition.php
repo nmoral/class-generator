@@ -9,4 +9,6 @@ use Stringable;
 interface Definition extends Stringable
 {
     public function getFilePath(): string;
+
+    public function getDirectory(): string;
 }

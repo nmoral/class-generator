@@ -21,11 +21,13 @@ class PhpDefinition implements Definition
 
     public function getFilePath(): string
     {
-        return $this->rootDir . $this->nameSpaceToPath();
+        return $this->rootDir . $this->fileDefinition->getClassPath();
     }
 
-    private function nameSpaceToPath(): array|string
+    /**
+     */
+    public function getDirectory(): string
     {
-        return str_replace('\\', '/', $this->fileDefinition->getClassName()).'.php';
+        return dirname($this->getFilePath());
     }
 }

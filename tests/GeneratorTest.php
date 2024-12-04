@@ -26,7 +26,7 @@ class GeneratorTest extends TestCase
                     new ClassOptions(
                         'test',
                         new NamespaceDefinition(
-                            'SolidDevelopment\ClassGenerator',
+                            'SolidDevelopment\ClassGenerator\tests',
                             ['Tests'],
                         )
                     )
@@ -40,6 +40,7 @@ class GeneratorTest extends TestCase
 
         self::assertSame(0, $result);
         self::assertSame(file_get_contents('./tests/test.php'), file_get_contents($definition->getFilePath()));
+        self::assertSame('./build/Tests/Test.php', $definition->getFilePath());
         unlink($definition->getFilePath());
     }
 }
