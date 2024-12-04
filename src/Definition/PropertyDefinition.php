@@ -17,12 +17,19 @@ class PropertyDefinition implements Stringable, LevelInterface
 
     public function __toString(): string
     {
-        return sprintf(
-            '%s%s $%s;',
+        $property = sprintf(
+            '%s%s %s $%s',
             str_repeat(' ', $this->level * 4),
             $this->options->getVisibility(),
+            $this->options->getType(),
             $this->options->getName()
         );
+
+        if ($this->options->hasValue()) {
+            $property .= ' = ' . $this->options->getValue();
+        }
+
+        return sprintf('%s;', $property);
     }
 
     public function setLevel(int $level): void

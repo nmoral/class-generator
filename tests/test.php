@@ -6,7 +6,7 @@ namespace SolidDevelopment\ClassGenerator\tests\Tests;
 
 class Test
 {
-    public $test;
+    public string|null $test = null;
 
-    public $test2;
+    public mixed $test2;
 }
