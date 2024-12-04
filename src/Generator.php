@@ -22,6 +22,6 @@ class Generator
 
     private function _doGenerate(Definition $classDefinition): void
     {
-        file_put_contents($classDefinition->getFileName(), (string) $classDefinition);
+        file_put_contents($classDefinition->getFilePath(), (string) $classDefinition);
     }
 }

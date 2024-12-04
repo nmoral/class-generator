@@ -17,7 +17,8 @@ class ClassDefinition implements Stringable
     public function __toString(): string
     {
         return <<<PHP
-class {$this->options->getClassName()} {
+class {$this->options->getClassName()}
+{
 
 }
 PHP;

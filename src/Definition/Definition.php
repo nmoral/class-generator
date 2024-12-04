@@ -8,7 +8,5 @@ use Stringable;
 
 interface Definition extends Stringable
 {
-    /**
-     **/
-    public function getFileName(): string;
+    public function getFilePath(): string;
 }

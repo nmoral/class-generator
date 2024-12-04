@@ -19,8 +19,13 @@ class PhpDefinition implements Definition
         return (string) $this->fileDefinition;
     }
 
-    public function getFileName(): string
+    public function getFilePath(): string
     {
-        return $this->rootDir . $this->fileDefinition->getClassName() . '.php';
+        return $this->rootDir . $this->nameSpaceToPath();
+    }
+
+    private function nameSpaceToPath(): array|string
+    {
+        return str_replace('\\', '/', $this->fileDefinition->getClassName()).'.php';
     }
 }

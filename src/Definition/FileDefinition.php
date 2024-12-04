@@ -25,6 +25,7 @@ class FileDefinition implements Stringable
 declare(strict_types=1);
 
 {$classDefinition}
+
 PHP;
 
     }

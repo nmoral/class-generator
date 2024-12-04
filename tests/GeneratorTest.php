@@ -19,19 +19,22 @@ class GeneratorTest extends TestCase
     {
         $generator = new Generator();
 
-        $result = $generator->generate(
-            new PhpDefinition(
-                new FileDefinition(
-                    new ClassDefinition(
-                        new ClassOptions(
-                            'test'
-                        )
+        $definition = new PhpDefinition(
+            new FileDefinition(
+                new ClassDefinition(
+                    new ClassOptions(
+                        'test'
                     )
-                ),
-                './build/'
-            )
+                )
+            ),
+            './build/'
+        );
+        $result = $generator->generate(
+            $definition
         );
 
         self::assertSame(0, $result);
+        self::assertSame(file_get_contents('./tests/test.php'), file_get_contents($definition->getFilePath()));
+        unlink($definition->getFilePath());
     }
 }
