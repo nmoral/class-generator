@@ -19,11 +19,6 @@ class FunctionOptions extends ModifierOptions
         parent::__construct($name, $visibility, $static);
     }
 
-    public function hasReturnType(): bool
-    {
-        return null !== $this->getReturnType();
-    }
-
     public function getReturnType(): ?ReturnType
     {
         return $this->returnType;
@@ -34,8 +29,13 @@ class FunctionOptions extends ModifierOptions
         return $this->parameters;
     }
 
-    public function hasParameters()
+    public function hasParameters(): bool
     {
         return null !== $this->parameters;
+    }
+
+    public function hasReturnType(): bool
+    {
+        return null !== $this->returnType;
     }
 }

@@ -13,7 +13,7 @@ class DefinitionCollection implements Stringable, Iterator
     private int $index = 0;
 
     public function __construct(
-        private readonly array $definitions = [],
+        private array $definitions = [],
         int $level = 1,
         private readonly string $separator = PHP_EOL.PHP_EOL,
     ) {
@@ -52,5 +52,10 @@ class DefinitionCollection implements Stringable, Iterator
     public function rewind(): void
     {
         $this->index = 0;
+    }
+
+    public function sort(array $callback): void
+    {
+        usort($this->definitions, $callback);
     }
 }

@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace SolidDevelopment\ClassGenerator\Definition\Function;
 
-class ParameterOptions
+use SolidDevelopment\classGenerator\Definition\AbstractOptions;
+
+class ParameterOptions extends AbstractOptions
 {
     public function __construct(
-        private string $name,
+        string $name,
         private array $types = ['mixed'],
         private mixed $defaultValue = null,
     ) {
+        parent::__construct($name);
     }
 
     public function getName(): string

@@ -11,6 +11,10 @@ use SolidDevelopment\ClassGenerator\Definition\Class\ClassOptions;
 use SolidDevelopment\ClassGenerator\Definition\Class\NamespaceDefinition;
 use SolidDevelopment\ClassGenerator\Definition\DefinitionCollection;
 use SolidDevelopment\ClassGenerator\Definition\FileDefinition;
+use SolidDevelopment\ClassGenerator\Definition\Function\Constructor\Constructor;
+use SolidDevelopment\ClassGenerator\Definition\Function\Constructor\ConstructorParameter;
+use SolidDevelopment\ClassGenerator\Definition\Function\Constructor\ConstructorParameterOptions;
+use SolidDevelopment\ClassGenerator\Definition\Function\Constructor\ConstructorParameters;
 use SolidDevelopment\ClassGenerator\Definition\Function\FunctionDefinition;
 use SolidDevelopment\ClassGenerator\Definition\Function\FunctionOptions;
 use SolidDevelopment\ClassGenerator\Definition\Function\FunctionParameter;
@@ -84,6 +88,36 @@ class GeneratorTest extends TestCase
                                 ], 2, PHP_EOL),
                             ),
                         ),
+                        new FunctionDefinition(
+                            new FunctionOptions(
+                                'test2',
+                                visibility: 'private',
+                                returnType: new ReturnType([
+                                    'string',
+                                ]),
+                                parameters: new DefinitionCollection([
+                                    new FunctionParameter(
+                                        new ParameterOptions(
+                                            'str',
+                                            ['string'],
+                                            '\'str\''
+                                        )
+                                    ),
+                                ], 2, PHP_EOL),
+                            ),
+                        ),
+                        new Constructor(
+                            parameters: new DefinitionCollection([
+                                new ConstructorParameter(
+                                    new ConstructorParameterOptions(
+                                        'content',
+                                        ['array'],
+                                        '[]',
+                                        'private',
+                                        false
+                                    )),
+                            ], 2, PHP_EOL)
+                        ),
                     ])
                 )
             ),
@@ -92,9 +126,10 @@ class GeneratorTest extends TestCase
         $result = $generator->generate(
             $definition
         );
-
         self::assertSame(0, $result);
-        self::assertSame(file_get_contents('./tests/test.php'), file_get_contents($definition->getFilePath()));
+        $classContent = file_get_contents($definition->getFilePath());
+
+        self::assertSame(file_get_contents('./tests/test.php'), $classContent);
         self::assertSame('./build/Tests/Test.php', $definition->getFilePath());
         unlink($definition->getFilePath());
     }

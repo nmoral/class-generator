@@ -25,6 +25,13 @@ class FunctionDefinition implements LevelInterface, Stringable
         $this->level = $level;
     }
 
+    /**
+     */
+    public function getVisibility(): string
+    {
+        return $this->options->getVisibility();
+    }
+
     public function __toString(): string
     {
         $indetation = $this->getIndentation();
@@ -40,8 +47,9 @@ class FunctionDefinition implements LevelInterface, Stringable
         } else {
             $functionSignature .= '()';
         }
-
-        $functionSignature .= ': '.$this->options->getReturnType();
+        if ($this->options->hasReturnType()) {
+            $functionSignature .= ': '.$this->options->getReturnType();
+        }
 
         return $functionSignature.PHP_EOL.$indetation.'{'.PHP_EOL.$indetation.'}';
     }
