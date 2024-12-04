@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SolidDevelopment\ClassGenerator\Definition;
+namespace SolidDevelopment\ClassGenerator\Definition\Properties;
 
+use SolidDevelopment\ClassGenerator\Definition\ModifierOptions;
 use SolidDevelopment\ClassGenerator\Exception\InvalidPropertyDefinition;
 
 class PropertyOptions extends ModifierOptions

@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SolidDevelopment\ClassGenerator\Definition;
+namespace SolidDevelopment\ClassGenerator\Definition\Class;
 
+use SolidDevelopment\ClassGenerator\Definition\DefinitionCollection;
+use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyDefinition;
 use SolidDevelopment\ClassGenerator\Exception\InvalidClassDefinition;
 use Stringable;
 

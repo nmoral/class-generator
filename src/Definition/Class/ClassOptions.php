@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SolidDevelopment\ClassGenerator\Definition;
+namespace SolidDevelopment\ClassGenerator\Definition\Class;
+
+use SolidDevelopment\classGenerator\Definition\AbstractOptions;
 
 class ClassOptions extends AbstractOptions
 {

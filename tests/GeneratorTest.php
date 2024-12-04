@@ -6,14 +6,14 @@ namespace SolidDevelopment\ClassGenerator\Tests;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use SolidDevelopment\ClassGenerator\Definition\ClassDefinition;
-use SolidDevelopment\ClassGenerator\Definition\ClassOptions;
+use SolidDevelopment\ClassGenerator\Definition\Class\ClassDefinition;
+use SolidDevelopment\ClassGenerator\Definition\Class\ClassOptions;
+use SolidDevelopment\ClassGenerator\Definition\Class\NamespaceDefinition;
 use SolidDevelopment\ClassGenerator\Definition\DefinitionCollection;
 use SolidDevelopment\ClassGenerator\Definition\FileDefinition;
-use SolidDevelopment\ClassGenerator\Definition\NamespaceDefinition;
 use SolidDevelopment\ClassGenerator\Definition\PhpDefinition;
-use SolidDevelopment\ClassGenerator\Definition\PropertyDefinition;
-use SolidDevelopment\ClassGenerator\Definition\PropertyOptions;
+use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyDefinition;
+use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyOptions;
 use SolidDevelopment\ClassGenerator\Exception\InvalidClassDefinition;
 use SolidDevelopment\ClassGenerator\Generator;
 
@@ -39,9 +39,9 @@ class GeneratorTest extends TestCase
                             new PropertyDefinition(
                                 new PropertyOptions(
                                     'test',
+                                    static: true,
                                     type: 'string|null',
                                     value: 'null',
-                                    static: true,
                                 )
                             ),
                             new PropertyDefinition(

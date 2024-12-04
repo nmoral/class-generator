@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SolidDevelopment\classGenerator\Definition;
+namespace SolidDevelopment\ClassGenerator\Definition;
 
 interface LevelInterface
 {

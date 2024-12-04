@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SolidDevelopment\ClassGenerator\Tests\Definition;
 
 use PHPUnit\Framework\Attributes\Test;
-use SolidDevelopment\ClassGenerator\Definition\PropertyOptions;
+use SolidDevelopment\ClassGenerator\Definition\Properties\PropertyOptions;
 use PHPUnit\Framework\TestCase;
 use SolidDevelopment\ClassGenerator\Exception\InvalidPropertyDefinition;
 

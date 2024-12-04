@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SolidDevelopment\ClassGenerator\Definition;
 
+use SolidDevelopment\ClassGenerator\Definition\Class\ClassDefinition;
 use Stringable;
 
 class FileDefinition implements Stringable
